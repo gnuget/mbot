@@ -1,0 +1,88 @@
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-11-09 23:06:22) [GET]
+  Session ID: 9200ac5232844370361b5203d059a00a
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-11-09 23:06:22) [GET]
+  Session ID: 9200ac5232844370361b5203d059a00a
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+
+MissingSourceFile (no such file to load -- sqlite3):
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/kernel/requires.rb:7:in `require_library_or_gem'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/core_ext/kernel/requires.rb:5:in `require_library_or_gem'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/sqlite3_adapter.rb:10:in `sqlite3_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:292:in `send'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:292:in `connection='
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:260:in `retrieve_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:78:in `connection'
+    /var/lib/gems/1.8/gems/activerecord-2.1.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:529:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/filters.rb:568:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/session_management.rb:130:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/base.rb:389:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:355:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.1.2/lib/active_support/dependencies.rb:510:in `require'
+    /var/lib/gems/1.8/gems/rails-2.1.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.1.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-11-09 23:07:40) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--15267475bc9a4d3888c678a4c44a5117fa111c04
+  Parameters: {"action"=>"index", "controller"=>"users"}
+Rendering users/index
+Completed in 0.00390 (256 reqs/sec) | Rendering: 0.00084 (21%) | DB: 0.00000 (0%) | 200 OK [http://0.0.0.0/users/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-11-09 23:08:01) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--15267475bc9a4d3888c678a4c44a5117fa111c04
+  Parameters: {"action"=>"index", "controller"=>"users"}
+Rendering users/index
+Completed in 0.00358 (279 reqs/sec) | Rendering: 0.00076 (21%) | DB: 0.00000 (0%) | 200 OK [http://0.0.0.0/users/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-11-09 23:08:22) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--15267475bc9a4d3888c678a4c44a5117fa111c04
+  Parameters: {"action"=>"index", "controller"=>"users"}
+Rendering users/index
+Completed in 0.00507 (197 reqs/sec) | Rendering: 0.00043 (8%) | DB: 0.00000 (0%) | 200 OK [http://0.0.0.0/users]
