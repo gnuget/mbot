@@ -5,7 +5,7 @@ import md5
 
 """ Plugin for get a nice url from http://tinyurl.com  for the pepon proyect"""
 
-class pepon_md5:    
+class mbot_md5:    
 
     def __init__(self):
         pass
@@ -19,6 +19,6 @@ class pepon_md5:
         return hash        
 
 if __name__ == "__main__":
-    md = pepon_md5()
+    md = mbot_md5()
     md.set_string("qwerty")
     print md.main()

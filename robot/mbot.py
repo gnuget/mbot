@@ -20,7 +20,7 @@ import time
 from plugins.log import Log
 from plugins.tinyUrl import  tinyUrl
 from plugins.awbox import awbox
-from plugins.pepon_md5 import pepon_md5
+from plugins.mbot_md5 import mbot_md5
 from plugins.unmd5 import unmd5
 from plugins.translate import translate
 from plugins.help import help
@@ -30,7 +30,7 @@ from PyGtalkRobot import GtalkRobot
 
 ############################################################################################################################
 
-class SampleBot(GtalkRobot):
+class mbot(GtalkRobot):
     
     #Regular Expression Pattern Tips:
     # I or IGNORECASE <=> (?i)      case insensitive matching
@@ -93,7 +93,7 @@ class SampleBot(GtalkRobot):
             self.replyMessage(user,"Vamos no te voy a generar un md5 hash de una cadena vacia") 
         else:
             md = args[1]
-            hash = pepon_md5()
+            hash = mbot_md5()
             hash.set_string(md)
             
             hash = hash.main()
@@ -173,6 +173,6 @@ class SampleBot(GtalkRobot):
 
 ############################################################################################################################
 if __name__ == "__main__":
-    bot = SampleBot()
-    bot.setState('available', "Pepon el Robot")
+    bot = mbot()
+    bot.setState('available', "mbot  el Robot")
     bot.start("mail","password")
