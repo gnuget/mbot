@@ -63,7 +63,7 @@ class mbot(GtalkRobot):
 
         # Verify if the user is the Administrator of this bot
         if jid == 'ldmiao@gmail.com':
-            print jid, " ---> ",bot.getResources(jid), bot.getShow(jid), bot.getStatus(jid)
+            print("testing") 
             self.setState(show, status)
             self.replyMessage(user, "State settings changed！")
 
