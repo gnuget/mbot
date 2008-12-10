@@ -49,7 +49,7 @@ To use, subclass the "GtalkRobot" class and implement "command_NUM_" methods
 
 def print_info(obj):
     for (name, value) in inspect.getmembers(obj):
-        print '%s: %r' % (name, value)
+        print((name,value))
 
 class GtalkRobot:
 
@@ -144,11 +144,10 @@ class GtalkRobot:
         else:
             self.commands = list()
         
-        for (function,expresion) in self.patterns.iteritems():
+        for (function,expresion) in list(self.patterns.items()):
             for (name, value) in inspect.getmembers(self):
                 if inspect.ismethod(value) and name == self.command_prefix + function:
                     self.commands.append({'expresion':expresion,'value':value,'plugin':function})
-    #print self.commands
 
 
     def controller(self,conn,message):
@@ -176,9 +175,10 @@ class GtalkRobot:
     #Accepting All request for all users (anyone can add this bot as  a friend)
     def presenceHandler(self, conn, presence):
         if presence:
-            print "-"*100
-            print presence.getFrom(), ",", presence.getFrom().getResource(), ",", presence.getType(), ",", presence.getStatus(), ",", presence.getShow()
-            print "~"*100
+            print("-"*100)
+            print(presence.getFrom(), presence.getFrom().getResource(), presence.getType(), presence.getStatus(), presence.getShow(),sep=",")
+            print("~"*100)
+
             if presence.getType()=='subscribe':
                 jid = presence.getFrom().getStripped()
                 self.authorize(jid)
@@ -213,17 +213,17 @@ class GtalkRobot:
         #talk.google.com
         conres=self.conn.connect( server=(self.server_host, self.server_port) )
         if not conres:
-            print "Unable to connect to server %s!"%server
+            print("Unable to connect to server %s!"%server)
             sys.exit(1)
-        if conres<>'tls':
-            print "Warning: unable to estabilish secure connection - TLS failed!"
+        if conres != 'tls':
+            print("Warning: unable to estabilish secure connection - TLS failed!")
         
         authres=self.conn.auth(user, password)
         if not authres:
-            print "Unable to authorize on %s - Plsese check your name/password."%server
+            print("Unable to authorize on %s - Plsese check your name/password."%server)
             sys.exit(1)
-        if authres<>"sasl":
-            print "Warning: unable to perform SASL auth os %s. Old authentication method used!"%server
+        if authres != "sasl":
+            print("Warning: unable to perform SASL auth os %s. Old authentication method used!" % server)
         
         self.conn.RegisterHandler("message", self.controller)
         self.conn.RegisterHandler('presence',self.presenceHandler)
@@ -232,7 +232,7 @@ class GtalkRobot:
         
         self.set_state(self.show, self.status)
         
-        print "Bot started."
+        print("Bot started.")
         self.GoOn()
 
     ########################################################################################################################
@@ -253,7 +253,7 @@ class GtalkRobot:
 
         # Verify if the user is the Administrator of this bot
         if jid == 'ldmiao@gmail.com':
-            print jid, " ---> ",bot.getResources(jid), bot.getShow(jid), bot.getStatus(jid)
+            print(jid, " ---> ",bot.getResources(jid), bot.getShow(jid), bot.getStatus(jid))
             self.setState(show, status)
             self.replyMessage(user, "State settings changed！")
 
