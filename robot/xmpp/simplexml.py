@@ -26,10 +26,10 @@ def XMLescape(txt):
 ENCODING='utf-8'
 def ustr(what):
     """Converts object "what" to unicode string using it's own __str__ method if accessible or unicode method otherwise."""
-    if type(what) == type(u''): return what
+    if type(what) == type(b''): return what
     try: r=what.__str__()
     except AttributeError: r=str(what)
-    if type(r)<>type(u''): return unicode(r,ENCODING)
+    if type(r) != type(b''): return unicode(r,ENCODING)
     return r
 
 class Node:
@@ -58,7 +58,7 @@ class Node:
             provided and then modified to be compliant with other arguments."""
         if node:
             if self.FORCE_NODE_RECREATION and type(node)==type(self): node=str(node)
-            if type(node)<>type(self): node=NodeBuilder(node,self)
+            if type(node) != type(self): node=NodeBuilder(node,self)
             else:
                 self.name,self.namespace,self.attrs,self.data,self.kids,self.parent = node.name,node.namespace,{},[],[],node.parent
                 for key  in node.attrs.keys(): self.attrs[key]=node.attrs[key]
@@ -71,7 +71,7 @@ class Node:
         if self.parent and not self.namespace: self.namespace=self.parent.namespace
         for attr in attrs.keys():
             self.attrs[attr]=attrs[attr]
-        if type(payload) in (type(''),type(u'')): payload=[payload]
+        if type(payload) in (type(''),type(b'')): payload=[payload]
         for i in payload:
             if type(i)==type(self): self.addChild(node=i)
             else: self.addData(i)
@@ -129,7 +129,7 @@ class Node:
             node.parent = self
         else: newnode=Node(tag=name, parent=self, attrs=attrs, payload=payload)
         self.kids.append(newnode)
-        self.data.append(u'')
+        self.data.append(b'')
         return newnode
     def addData(self, data):
         """ Adds some CDATA to node. """
@@ -144,7 +144,7 @@ class Node:
     def delChild(self, node, attrs={}):
         """ Deletes the "node" from the node's childs list, if "node" is an instance.
             Else deletes the first node that have specified name and (optionally) attributes. """
-        if type(node)<>type(self): node=self.getTag(node,attrs)
+        if type(node) != type(self): node=self.getTag(node,attrs)
         self.kids[self.kids.index(node)]=None
         return node
     def getAttrs(self):
@@ -196,10 +196,10 @@ class Node:
         nodes=[]
         for node in self.kids:
             if not node: continue
-            if namespace and namespace<>node.getNamespace(): continue
+            if namespace and namespace != node.getNamespace(): continue
             if node.getName() == name:
                 for key in attrs.keys():
-                   if not node.attrs.has_key(key) or node.attrs[key]<>attrs[key]: break
+                   if not node.attrs.has_key(key) or node.attrs[key] != attrs[key]: break
                 else: nodes.append(node)
             if one and nodes: return nodes[0]
         if not one: return nodes
@@ -222,7 +222,7 @@ class Node:
     def setPayload(self,payload,add=0):
         """ Sets node payload according to the list specified. WARNING: completely replaces all node's
             previous content. If you wish just to add child or CDATA - use addData or addChild methods. """
-        if type(payload) in (type(''),type(u'')): payload=[payload]
+        if type(payload) in (type(''),type(b'')): payload=[payload]
         if add: self.kids+=payload
         else: self.kids=payload
     def setTag(self, name, attrs={}, namespace=None):
@@ -329,7 +329,7 @@ class NodeBuilder:
             attrs[self.namespaces[ns]+attr[sp+1:]]=attrs[attr]
             del attrs[attr]        #
         self.__depth += 1
-        self.DEBUG(DBG_NODEBUILDER, "DEPTH -> %i , tag -> %s, attrs -> %s" % (self.__depth, tag, `attrs`), 'down')
+        self.DEBUG(DBG_NODEBUILDER, "DEPTH -> %i , tag -> %s, attrs -> %s" % (self.__depth, tag, 'attrs'), 'down')
         if self.__depth == self._dispatch_depth:
             if not self._mini_dom : self._mini_dom = Node(tag=tag, attrs=attrs)
             else: Node.__init__(self._mini_dom,tag=tag, attrs=attrs)

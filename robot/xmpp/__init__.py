@@ -25,9 +25,10 @@ session-related info. Though if you are not accessing instances variables direct
 and use only methods for access all values you should not have any problems.
 
 """
-from .simplexml import node
+from .simplexml import Node
 from .protocol import JID
-import debug,auth,transports,roster,dispatcher,features,browser,filetransfer,commands
+from .debug import Debug
+import auth,transports,roster,dispatcher,features,browser,filetransfer,commands
 
 from client import *
 from protocol import *
