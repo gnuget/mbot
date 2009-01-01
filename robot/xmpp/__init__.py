@@ -27,8 +27,8 @@ and use only methods for access all values you should not have any problems.
 """
 from .simplexml import Node
 from .protocol import JID
-from .debug import Debug
-import auth,transports,roster,dispatcher,features,browser,filetransfer,commands
+#from .debug import Debug
+#import auth,transports,roster,dispatcher,features,browser,filetransfer,commands
 
-from client import *
-from protocol import *
+from . import client 
+#from protocol import *
